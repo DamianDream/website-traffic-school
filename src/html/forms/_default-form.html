@@ -1,0 +1,110 @@
+<div class="form">
+    <form action="#" id="form" class="form__body" novalidate>
+        <!-- <h2 class="form__title">Main Form</h2> -->
+
+        <!-- name -->
+        <div class="form__item">
+            <label for="formName" class="form__label">Name:</label>
+            <input type="text" data-input="text" id="formName" name="name" class="form__input _req" required
+                value="userName">
+        </div>
+
+        <!-- email -->
+        <div class="form__item">
+            <label for="formEmail" class="form__label">Email:</label>
+            <input type="email" data-input="email" id="formEmail" name="email" class="form__input _req" required
+                value="user@email.com">
+        </div>
+
+        <!-- telegram -->
+        <div class="form__item">
+            <label for="formTelegram" class="form__label">Telegram:</label>
+            <input type="text" data-input="telegram" id="formTelegram" name="telegram" class="form__input" required
+                value="userTelegram">
+        </div>
+
+        <!-- phone -->
+        <div class="form__item">
+            <label for="formPhone" class="form__label">Phone:</label>
+            <input type="tel" data-input="phone" id="formPhone" name="phone" class="form__input" required
+                value="0991234567">
+        </div>
+
+        <!-- options (RADIO) -->
+        <div class="form__item">
+            <div class="form__label">Options to choose?</div>
+            <div class="form__options options">
+                <div class="options__item">
+                    <input type="radio" id="formYesOptions" name="option" value="yes" class="options__input" checked>
+                    <label for="formYesOptions" class="options__label"><span>Yes</span></label>
+                </div>
+                <div class="options__item">
+                    <input type="radio" id="formNoOptions" name="option" value="no" class="options__input">
+                    <label for="formNoOptions" class="options__label"><span>No</span></label>
+                </div>
+            </div>
+        </div>
+
+        <!-- textarea -->
+        <div class="form__item">
+            <label for="formMessage" class="form__label">Message:</label>
+            <textarea name="message" id="formMessage" class="form__input"></textarea>
+        </div>
+
+        <!-- select -->
+        <div class="form__item">
+            <label for="formSelect" class="form__label">Select:</label>
+                <select name="select" id="formSelect" class="formSelect">
+                    <option value="">Select country:</option>
+                    <option value="US">United States</option>
+                    <option value="UK">United Kingdom</option>
+                    <option value="ID">Indonesia</option>
+                    <option value="SG">Singapore</option>
+                    <option value="MY">Malaysia</option>
+                </select>
+        </div>
+
+        <div class="form__item">
+            <div id="customSelectFormItem" class="custom-select">
+
+            </div>
+        </div>
+
+         <!-- select PopUp -->
+         <div class="form__item select">
+            <label for="popupSelectID" class="select__label">Popup Select: </label>
+            <select name="popupSelect" id="popupSelectID" class="select__list">
+                    <option value="US" class="select__option">United States</option>
+                    <option value="UK">United Kingdom</option>
+                    <option value="ID">Indonesia</option>
+                    <option value="SG" checked>Singapore</option>
+                    <option value="MY">Malaysia</option>
+            </select>
+         </div>
+
+        <!-- add image -->
+        <div class="form__item">
+            <div class="form__label">Add photo:</div>
+            <div class="formFile">
+                <div class="formFile__item">
+                    <input accept=".jpg, .png, .gif" type="file" id="formImage" name="file" class="formFile__input">
+                    <div class="formFile__button">Add</div>
+                </div>
+                <div id="formPreview" class="formFile__preview"></div>
+            </div>
+        </div>
+
+        <!-- checkbox -->
+        <div class="form__item">
+            <div class="checkbox">
+                <input type="checkbox" data-input="checkbox" id="formAgreement" name="agreement"
+                    class="checkbox__input _req" checked>
+                <label for="formAgreement" class="checkbox__label"><span>I give my consent to the processing of personal
+                        data in accordance with the <a href="#">rules</a>*</span></label>
+            </div>
+        </div>
+
+        <button type="submit" class="form__button">Submit</button>
+
+    </form>
+</div>

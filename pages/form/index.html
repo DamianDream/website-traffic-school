@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  {{> meta }}
+  {{> favicon }}
+
+  <!-- <link href="[CSS URL]" rel="stylesheet"> -->
+  <title>Form</title>
+</head>
+
+<body class="preload">
+  <div class="wrapper">
+
+    <header class="header">
+      <div class="header__container">
+        <h1 data-lang="h1-title" class="header__title">Form</h1>
+
+        <div id="language-toggle">
+          <button class="language-toggle__btn" data-btn="ua">ua</button>
+          <button class="language-toggle__btn" data-btn="ru">ru</button>
+        </div>
+
+      </div>
+    </header>
+
+    <main>
+      <div class="main__container">
+
+        {{> forms/_default-form}}
+
+      </div>
+    </main>
+
+    {{> footer}}
+
+  </div>
+  <script type="module" src="./form.js"></script>
+</body>
+
+</html>

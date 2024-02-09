@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  {{> meta }}
+  {{> favicon }}
+
+  <!-- <link href="[CSS URL]" rel="stylesheet"> -->
+  <title>About</title>
+</head>
+
+<body>
+  <div class="wrapper">
+
+    <header>
+      <h1 data-lang="h1-title">About</h1>
+      <div class="lang-select" data-lang-control>
+        <button class="lang-select__btn" data-btn="ua">ua</button>
+        <button class="lang-select__btn" data-btn="ru">ru</button>
+      </div>
+    </header>
+    
+    <main>
+      <h2 data-lang="section-one-title">Section One</h2>
+      <div><a href="../../index.html">Home page link</a></div>
+    </main>
+
+    {{> footer}}
+
+  </div>
+  <script type="module" src="./about.js"></script>
+</body>
+
+</html>

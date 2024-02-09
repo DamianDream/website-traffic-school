@@ -1,0 +1,172 @@
+@use "sass:math";
+@use "sass:map";
+
+$breakpoints: (
+  xs: (max-width: 480px ),
+  sm: (min-width: 480px),
+  md: (min-width: 768px),
+  lg: (min-width: 992px),
+  xl: (min-width: 1200px),
+  xxl: (min-width: 1400px)
+) !default;
+
+// @debug map.get($breakpoints, "xs", "max-width");
+//  Snippet for @media => "md"
+
+// Custom variables ========================================================================================================================================================
+:root {
+	--text-spacing: 0.12em;
+	--text-spacing-2: 0.2em;
+}
+
+// Fonts ==============================================================================================================================================================================================================================================================================
+$fontFamily: "Grotesk", san-serif;
+$fontSize: toRem(16);
+
+// Colors ==============================================================================================================================================================================================================================================================================
+
+// Colors from external palette
+@import "@scss/abstracts/colors-palette";
+
+// Page Configuration ==============================================================================================================================================================================================================================================================================
+// Minimum page width
+$minWidth: 320;
+// Width of the template
+$maxWidth: 1920;
+// Container width ( default => 0 )
+$maxWidthContainer: 1200;
+// Absolute container padding
+// (30 = 2 x 15px from left and right, default => 0)
+$containerPadding: 30;
+
+// Pure breakpoint first trigger
+$containerWidth: $maxWidthContainer + $containerPadding;
+
+// Layout responsiveness
+// (i) For all style names that include *__container
+$responsive: true;
+
+// Imports ========================================================================================================================================================
+
+@import "@scss/base";
+@import "@scss/abstracts";
+@import "@scss/layout";
+@import "@scss/components";
+
+// import form  styles
+// @import "@scss/components/form/default-form.scss";
+// @import "@scss/components/form/select.scss";
+// @import "@scss/components/form/default-form-select.scss";
+
+// import toast notifications styles
+// @import "@scss/components/toast.scss";
+
+//  Add Icons Font (after import from iconMoon)
+@import "@scss/abstracts/icons.scss";
+
+//  Popup styles 
+// @import "@scss/components/popup.scss";
+
+// Body ==============================================================================================================================================================================================================================================================================
+
+html,
+body {
+	height: 100%;
+	min-width: $minWidth + px;
+}
+body {
+	color: var(--text-primary, #fff);
+	line-height: 1.4;
+	font-family: $fontFamily;
+	font-size: $fontSize;
+	font-weight: 400;
+	background-color: var(--bg-primary, #000);
+
+	.lock & {
+		overflow: hidden;
+		touch-action: none;
+		overscroll-behavior: none;
+	}
+	.loaded & {
+	}
+}
+
+.wrapper {
+	min-height: 100%;
+	display: flex;
+	flex-direction: column;
+	overflow: hidden;
+	@supports (overflow: clip) {
+		overflow: clip;
+	}
+	// Footer to bottom
+	> main {
+		flex: 1 1 auto;
+	}
+}
+
+// remove page transition on page load
+.preload * {
+	-webkit-transition: none !important;
+	-moz-transition: none !important;
+	-ms-transition: none !important;
+	-o-transition: none !important;
+	transition: none !important;
+	animation-duration: 0.001s !important; 
+}
+
+/* below trick to hide visible part, but not from screen readers */
+.sr-only, .visually-hidden {
+	position: absolute !important;
+	width: 1px !important;
+	height: 1px !important;
+	margin: -1px !important;
+	padding: 0 !important;
+	border: 0 !important;
+	overflow: hidden !important;
+	white-space: nowrap !important;
+	clip: rect(1px, 1px, 1px, 1px) !important;
+	clip-path: inset(50%) !important;
+	-webkit-clip-path: inset(50%) !important;
+}
+
+// Limitation container ======================================================================================================================================================================================================================
+/*
+(i) For all style names that include *__container
+Usage: main__container 
+Snippet (HTML): cnt
+*/
+@if ($responsive) {
+	// Adaptive
+	[class*="__container"] {
+		@if ($maxWidthContainer>0) {
+			max-width: toRem($containerWidth);
+			margin: 0 auto;
+		}
+		@if ($containerPadding>0) {
+			@if ($maxWidthContainer>0) {
+				padding: 0 toRem(math.div($containerPadding, 2));
+			} @else {
+				@include adaptiveValue("padding-left", math.div($containerPadding, 2), 15);
+				@include adaptiveValue("padding-right", math.div($containerPadding, 2), 15);
+			}
+		}
+	}
+}
+
+.title {
+	text-transform: uppercase;
+	font-family: inherit;
+	font-size: toRem(50);
+	letter-spacing: var(--text-spacing);
+	text-align: center;
+	word-wrap: break-word;
+	padding-block: 1em;
+}
+
+.description {
+	text-transform: uppercase;
+	font-family: inherit;
+	font-size: toRem(20);
+	letter-spacing: var(--text-spacing);
+}
