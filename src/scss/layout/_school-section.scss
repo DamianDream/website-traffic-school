@@ -77,7 +77,11 @@
 	--border: 1px;
 
 	position: relative;
-    min-height: 40vh;
+	min-height: 20vh;
+	
+	@include breakpoint('md') {
+		min-height: 40vh;
+	}
 
    &__text-row-left ,  &__text-row-right {
         padding-block: 0.4em;
@@ -103,7 +107,7 @@
 		&--light,
 		&--dark {
 			letter-spacing: 12px;
-			font-size: 1.6rem;
+			font-size: 1.4rem;
 			font-weight: 600;
 			text-transform: uppercase;
 			gap: 1vw;
