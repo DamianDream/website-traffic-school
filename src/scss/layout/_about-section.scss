@@ -1,0 +1,140 @@
+.about {
+	min-height: 90vh;
+	display: grid;
+	place-content: center;
+    padding-block: 5rem;
+
+	&__section-main-title {
+		margin-bottom: toRem(30);
+	}
+
+	// .about__container
+	&__container {
+	}
+	// .about__content
+	&__content {
+		padding: 1rem;
+		border-radius: 10px;
+	}
+	// .about__video-testimonials
+	&__video-testimonials {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+		row-gap: 1em;
+		column-gap: 2em;
+		padding-bottom: 2em;
+	}
+	// .about__title
+	&__title {
+		margin-top: toRem(0);
+		align-self: start;
+
+		font-weight: 400;
+		@include adaptiveValue("font-size", 32, 16);
+		line-height: 1.6;
+		text-align: center;
+
+		@include breakpoint("md") {
+			line-height: 1.4;
+			max-width: 40ch;
+			margin-inline: inset;
+			text-align: start;
+			margin-top: toRem(10);
+		}
+
+		&--accent {
+			font-weight: 600;
+			color: var(--text-accent);
+			padding-inline: 4px;
+			@include adaptiveValue("font-size", 38, 16);
+		}
+	}
+
+	// .about__subtitle
+	&__subtitle {
+        text-align: center;
+		margin-top: 3rem;
+		margin-bottom: 3rem;
+        font-weight: 600;
+        @include adaptiveValue("font-size", 42, 16);
+	}
+	// .about__info
+	&__info {
+        margin: 0 auto;
+        max-width: 80%;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 2em;
+        
+        @include breakpoint("md") {
+            max-width: 100%;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+        }
+	}
+	// .about__card
+	&__card {
+        @include adaptiveValue("padding-block", 24, 16);
+        @include adaptiveValue("padding-inline", 26, 16);
+		background: rgb(38 38 38 / 0.4);
+		background: linear-gradient(51deg, rgb(28, 28, 28) 0%, rgba(77, 77, 77, 0.6) 100%);
+		box-shadow: 0 1px 2px rgba(147, 147, 147, 0.4);
+		border-radius: 10px;
+
+
+        span {
+            font-weight: 600;
+            @include adaptiveValue("font-size", 52, 32);
+        }
+	}
+	// .about__card-number
+	&__card-number {
+    }
+	// .about__card-symbol
+	&__card-symbol {
+	}
+	// .about__card-text
+	&__card-text {
+        margin-top: 0.6em;
+        font-weight: 400;
+        @include adaptiveValue("font-size", 20, 16);
+	}
+	// .about__bottom-title
+	&__bottom-title {
+		padding-top: toRem(50);
+		padding-bottom: toRem(16);
+        max-width: 32ch;
+        margin: 0 auto;
+        text-align: center;
+        @include adaptiveValue("font-size", 28, 16);
+	}
+}
+
+.videoWrapper {
+	// justify-self: center;
+
+	position: relative;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+
+	height: 80%;
+	aspect-ratio: 16 / 9;
+
+	@include breakpoint("md") {
+		height: 90%;
+		aspect-ratio: 16 / 9;
+	}
+
+	display: flex;
+	position: relative;
+	border-radius: 6px;
+	box-shadow:
+		0 3px 6px rgba(0, 0, 0, 0.16),
+		0 3px 6px rgba(0, 0, 0, 0.23);
+	overflow: hidden;
+
+	iframe {
+		width: 100%;
+		height: 100%;
+	}
+}

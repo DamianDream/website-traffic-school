@@ -1,0 +1,382 @@
+:root {
+	--text-label: #484d51;
+}
+
+.contact {
+	padding-block: 1em;
+	// .contact__container
+	&__container {
+	}
+	// .contact__content
+	&__content {
+		position: relative;
+		margin: 0 auto;
+		max-width: 100%;
+		min-height: 50vh;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		margin-bottom: 10vh;
+
+		@include breakpoint("md") {
+			max-width: 86%;
+			min-height: 70vh;
+		}
+
+	}
+	// .contact__title
+	&__title {
+		@include breakpoint("md") {
+			align-self: flex-end;
+			text-align: end;
+			max-width: 18ch;
+		}
+	}
+	&__button {
+		align-self: center;
+		font-weight: 600;
+		@include adaptiveValue("font-size", 36, 16);
+		color: var(--text-accent);
+
+		@include breakpoint("md") {
+			align-self: flex-start;
+		}
+		&:hover, &:focus {
+			text-decoration: underline;
+		}
+	}
+	&__description {
+		position: relative;
+		@include adaptiveValue("margin-top", 50, 20);
+		align-self: flex-start;
+	}
+	&__text {
+		font-size: 0.8em;
+		width: 20ch;
+	}
+	// .contact__arrow
+	&__arrow {
+		@include adaptiveValue("width", 34, 20);
+		position: absolute;
+		top: -25%;
+		right: -10%;
+		transform: scaleX(-1);
+		-moz-transform: scaleX(-1);
+		-o-transform: scaleX(-1);
+		-webkit-transform: scaleX(-1);
+		filter: FlipH;
+		-ms-filter: "FlipH";
+
+		@include breakpoint("md") {
+			top: -50%;
+		}
+
+		img {
+			transform: rotate(-60deg);
+		}
+	}
+	// .contact__form
+	&__form {
+	}
+}
+
+.title {
+}
+.uppercase {
+}
+.reference-link {
+}
+
+.form {
+	color: var(--text-secondary);
+
+	// .form__body
+	&__body {
+		padding-inline: 2em;
+		display: grid;
+		place-content: center;
+		gap: 1em;
+
+		position: fixed;
+		top: 0;
+		left: 0;
+		height: 100vh;
+		width: 100vw;
+
+		overflow-y: scroll;
+		overflow-x: hidden;
+		z-index: 100;
+
+		background-color: var(--bg-secondary);
+		transition: transform 0.3s ease-in-out;
+
+		&[data-visible="true"] {
+			transform: translateX(0%);
+		}
+		&[data-visible="false"] {
+			transform: translateX(-100%);
+		}
+	}
+
+	&__card {
+	}
+
+	// .form__title
+	&__title {
+		color: var(--text-secondary);
+		@include adaptiveValue("font-size", 42, 16);
+		font-weight: 600;
+		margin-bottom: 1em;
+	}
+	// .form__item
+	&__item {
+		display: flex;
+		flex-direction: column-reverse;
+		position: relative;
+		padding-top: 1.6rem;
+		& + .input {
+			margin-top: 1.6rem;
+		}
+	}
+	// .form__label
+	&__label {
+		color: var(--text-label);
+		position: absolute;
+		top: 1.5rem;
+		transition: 0.25s ease;
+		transform: translateY(-1.5rem);
+	}
+	// .form__input
+	&__input {
+		border: 0;
+		z-index: 1;
+		background-color: transparent;
+		border-bottom: 2px solid #eee;
+		font: inherit;
+		font-size: 1.125rem;
+		padding: 0.25rem 0;
+
+		&:focus,
+		&:valid {
+			& + .form__label {
+				outline: 0;
+				border-bottom-color: var(--bg-accent);
+				color: var(--text-label);
+			}
+		}
+	}
+	&__info {
+		padding: 1rem 1rem;
+		text-align: center;
+		font-size: toRem(12);
+		text-decoration: underline;
+
+		a {
+			display: block;
+			color: var(--text-label);
+			text-decoration: none;
+		}
+	}
+	// .form__button
+	&__close-button {
+		position: absolute;
+		top: 4vh;
+		right: 4vw;
+
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		justify-content: space-between;
+		width: 3rem;
+		aspect-ratio: 1;
+		cursor: pointer;
+		transition: all 0.2s ease;
+
+		&:hover {
+			span {
+				height: 3px;
+			}
+			transform-origin: 50%;
+			transform: rotate(90deg);
+		}
+		&:active {
+			transform: rotate(90deg) scale(80%);
+		}
+
+		span {
+			width: 80%;
+			height: 2px;
+			background: var(--bg-primary);
+			transition: all 0.2s ease-in-out 0.1s;
+
+			&:first-child {
+				transform: rotate(45deg) translate(20px, 12px);
+			}
+			&:last-child {
+				transform: rotate(-45deg) translate(20px, -12px);
+			}
+		}
+	}
+	&__submit {
+		position: relative;
+		width: 100%;
+		justify-self: flex-end;
+		text-transform: uppercase;
+		color: var(--text-secondary);
+		background-color: var(--bg-accent);
+		font-family: "Grotesk-Wide";
+		@include adaptiveValue("font-size", 22, 14);
+		letter-spacing: var(--text-spacing-2);
+		font-weight: 700;
+		margin-top: 1em;
+		@include adaptiveValue("padding", 14, 8);
+		cursor: pointer;
+		transition: all 0.3s ease;
+
+		&:hover {
+			transform: translate3d(0, 4px, 0);
+			box-shadow: 4px 4px 0 0 rgb(0, 0, 0);
+			&::before {
+			}
+		}
+		&:focus {
+			box-shadow: 4px 4px 0 0 rgb(0, 0, 0);
+		}
+	}
+}
+
+.form__item--tip {
+	font-size: toRem(12);
+	font-weight: 400;
+	color: #898989;
+	text-align: end;
+}
+
+.checkbox {
+	// .checkbox__input
+	&__input {
+	}
+	// .checkbox__label
+	&__label {
+		color: var(--text-label);
+		font-size: toRem(12);
+	}
+}
+
+.formSelect {
+	--clr-arrow: #000;
+	--clr-arrow-bg: #b5b5b5;
+	--clr-arrow-bg-hover: #3815ff;
+
+	position: relative;
+	height: 34px;
+	// background: white;
+	// box-shadow: 0 1px 1px 2px rgba(0, 0, 0, 0.1);
+	border-radius: 5px;
+	overflow: hidden;
+
+	border: 0;
+	z-index: 1;
+	background-color: transparent;
+	border-bottom: 2px solid #eee;
+	font: inherit;
+	color: #8597a3;
+
+	&:after {
+		content: "";
+		position: absolute;
+		top: 0;
+		width: 0;
+		height: 0;
+		right: 20px;
+		bottom: 0;
+		margin: auto;
+		border-style: solid;
+		border-width: 5px 5px 0 5px;
+		border-color: var(--clr-arrow) transparent transparent transparent;
+		pointer-events: none;
+		transition: all 0.3s ease;
+	}
+
+	&:before {
+		width: 30px;
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		background: var(--clr-arrow-bg);
+		content: "";
+		pointer-events: none;
+	}
+
+	&:hover {
+		&:before {
+			background: var(--clr-arrow-bg-hover);
+		}
+		&:after {
+			border-color: whitesmoke transparent transparent transparent;
+		}
+	}
+
+	select {
+		border: none;
+		box-shadow: none;
+		border-radius: 0;
+		background: transparent;
+		height: 100%;
+		width: 100%;
+		cursor: pointer;
+		outline: none;
+		padding-right: 35px;
+		padding-left: 15px;
+		color: var(--text-label);
+
+		// Disable default styling on ff
+		-moz-appearance: none;
+
+		// Disable ugly ass outline on firefox
+		&:-moz-focusring {
+			color: transparent;
+			text-shadow: 0 0 0 #000;
+		}
+
+		// Disable default styling on webkit browsers
+		-webkit-appearance: none;
+
+		// Disable default arrow on IE 11+
+		&::-ms-expand {
+			display: none;
+		}
+
+		&:focus {
+			border-color: #949494;
+		}
+	}
+}
+
+option:not(first-child) {
+	color: var(--text-label);
+}
+
+option::-moz-selection { /* Code for Firefox */
+	color: var(--text-label);
+}
+
+option::selection {
+	color: var(--text-label);
+}
+
+// IE 9 only
+@media all and (min-width: 0\0) and (min-resolution: 0.001dpcm) {
+	.formSelect {
+		select {
+			padding-right: 0;
+		}
+
+		&:after,
+		&:before {
+			display: none;
+		}
+	}
+}

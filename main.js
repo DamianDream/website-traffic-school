@@ -1,31 +1,57 @@
 // --- Load main project styles configuration
-import './style.scss';
+import "./style.scss";
 
 // --- Load main project scripts configuration
-import appStart from '@js/appStart';
+import appStart from "@js/appStart";
+
+// --- Load localization translate
+import langSelect from "@js/localization/uLangMain.js";
+import translate from "@js/localization/mainPage/language.json";
 
 // --- Dialog / Popup
 // import { initializePopUp } from '@js/notification/popup/popup';
 
-//  --- Toggle Navigation
-import { hamburgerToggle } from '@js/utils/hamburgerToggle';
+//  --- Body Lock
+import { toggleBodyLock } from "@js/utils/bodyLock";
+
+//  --- Toggle
+import { toggleHidenArea, closeNavigation } from "@js/utils/toggleHidenArea";
+import { toggleForm } from "@js/utils/toggleForm";
+
+// --- Form
+import { formHandle } from "@js/form/formHandle";
 
 // --- Load Animations
-// import { pageLoaderPercent } from '@js/animation/gsapFunctions.js';
-// import { animateValue } from '@js/animation/animateValues.js';
-import { addClassInViewObserver } from '@js/animation/addClassInViewObserver.js';
-import { inViewport } from '@js/animation/inViewport.js';
+import { pageLoaderPercent } from '@js/animation/gsapFunctions.js';
+import { addClassInViewObserver } from "@js/animation/addClassInViewObserver.js";
 
-import SplitType from 'split-type';
+// --- Change page location
+import { uNavigationScrollInToView } from '@js/utils/uScrollInToView'
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener("DOMContentLoaded", () => {
 	// --- Page loader animation
-	// pageLoaderPercent('.counter');
+	pageLoaderPercent('.counter');
 
 	// --- Auto start scripts
 	appStart();
 
+	// Activate language toggle script
+	langSelect(translate);
+
+	// Navigation Menu
+	toggleHidenArea("primary-navigation", toggleBodyLock);
+
+	// Contact Form Open & Close Action
+	toggleForm();
+
+	// Form Action on Submit
+	formHandle("form");
+
+	// Number animation
+	addClassInViewObserver('.num-anim');
+
 	// Navigation
-	hamburgerToggle('primary-navigation');
+
+	uNavigationScrollInToView('primary-nav', closeNavigation)
 
 });

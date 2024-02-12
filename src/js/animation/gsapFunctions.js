@@ -1,6 +1,7 @@
 // Link: https://gsap.com/docs/v3/Installation/
 
-console.log('gsap loadeded');
+//  --- Body Lock
+import { lockBody, unlockBody, toggleBodyLock } from "@js/utils/bodyLock";
 
 import { gsap } from 'gsap';
 
@@ -35,6 +36,7 @@ import { gsap } from 'gsap';
 
 // Require import : gsap
 export const pageLoaderPercent = (selector) => {
+	toggleBodyLock()
 	let counterElement = document.querySelector(selector);
 
 	if (!counterElement) {
@@ -46,6 +48,15 @@ export const pageLoaderPercent = (selector) => {
 
 	function updateCounter() {
 		if (currentValue === 100) {
+
+			setTimeout(() => {
+				toggleBodyLock()
+			}, 1500)
+
+			setTimeout(() => {
+				document.querySelector('.loader').remove()
+			}, 2600)
+
 			return;
 		}
 		currentValue += Math.floor(Math.random() * 10) + 1;

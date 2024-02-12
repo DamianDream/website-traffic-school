@@ -1,5 +1,4 @@
 import { fixPageTransition } from '@js/utils/fixPageTransition.js'
-import langSelect from '@js/localization/uLangMain.js'
 import { autoStartModules } from '@js/autoStartScripts/uAutoStartScriptFiles.js'
 
 const appStart = () => {
@@ -15,9 +14,6 @@ const appStart = () => {
             Stop Animation while window resize
         */ 
         autoStartModules()
-        
-        // Activate language toggle script
-        langSelect()
 
     } catch (error) {
         console.error("Fail to load appStart", error);

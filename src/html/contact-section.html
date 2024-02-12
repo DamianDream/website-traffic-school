@@ -1,0 +1,96 @@
+<section class="contact" id="contact">
+    <div class="contact__container">
+
+        <div class="contact__content">
+            <h2 class="contact__title title" data-lang='contact__title'>
+                Чекаємо тебе в нашій команді
+            </h2>
+            <!-- Form openButton -->
+            <button id="formOpenBtn" aria-expanded="false" aria-controls="contact-form" href="#"
+                class="uppercase contact__button" data-lang='contact__link'>Залишити контакти</button>
+
+            <div class="contact__description">
+                <div class="contact__text">
+                    <p data-lang='contact__descr'>Залиште свої контакти і наш менеджер зв'яжеться з вами найближчий
+                        часом
+                    </p>
+                </div>
+                <div class="contact__arrow">
+                    <img src="/images/curved_arrow2.svg" alt="arrow image">
+                </div>
+            </div>
+
+        </div>
+
+        <div class="contact__form form">
+            <div form-view class="form__body" data-visible="false" aria-label="contact-form">
+
+                <form action="#" id="form" class="form__body">
+
+                    <button id="formCloseBtn" aria-controls="contact-form">
+                        <div class="form__close-button">
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </button>
+
+                    <h2 class="form__title">ЗАПОВНІТЬ ФОРМУ</h2>
+
+                    <!-- name -->
+                    <div class="form__item">
+                        <input tabindex="1" type="text" data-input="text" id="formName" name="name" class="form__input _req" required
+                            pattern="[А-Яа-яA-Za-z ]{3,30}" minlength="3" maxlength="30" autocomplete="on" title="Тільки літери і не менше ніж 3." value="User Name">
+                        <label for="formName" class="form__label">Ваше ім'я</label>
+                    </div>
+
+                    <!-- telegram -->
+                    <div class="form__item">
+                        <input tabindex="2" type="text" data-input="telegram" id="formTelegram" title="Не менше ніж 4 літери" name="telegram" class="form__input _req"
+                            required pattern="[A-Za-z0-9_@]{4,36}" minlength="4" maxlength="36" value="my_telegram_name">
+                        <label for="formTelegram" class="form__label">Вкажіть свій телеграм*</label>
+                    </div>
+
+                    <!-- phone -->
+                    <div class="form__item">
+                        <input tabindex="3" type="tel" data-input="phone" id="formPhone" name="phone" class="form__input" 
+                        pattern="^\d{5}-\d{3}-\d{4}$" value="38044-123-4567">
+                        <!-- 38044-123-4567 -->
+                        <label for="formPhone" class="form__label">Вкажіть телефон</label>
+                    </div>
+                    <div class="form__item--tip">Приклад: 38011-333-4444</div>
+
+                    <!-- select -->
+                    <div class="form__item">
+                        <select tabindex="4" name="select" id="formSelect" class="formSelect" data-input="select">
+                            <option value="" class="select__option">Звідки дізнались про нас:</option>
+                            <option value="smm" class="select__option">Реклами</option>
+                            <option value="friend" class="select__option">Від друзів</option>
+                            <option value="other" class="select__option">Інше</option>
+                        </select>
+                    </div>
+
+                    <!-- checkbox -->
+                    <div class="form__item">
+                        <div class="checkbox">
+                            <input tabindex="5" type="checkbox" data-input="checkbox" id="formAgreement" name="agreement"
+                                class="checkbox__input _req" required checked>
+                            <label for="formAgreement" class="checkbox__label">
+                                <span>Я даю згоду на обробку персональних даних</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <button tabindex="6" type="submit" class="form__submit">Відправити</button>
+
+                    <div class="form__info">
+                        <a href="/pages/public-offer/index.html" target="_blank">Політика Конфіденційності</a>
+                    </div>
+                    <!-- </div> -->
+                </form>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>

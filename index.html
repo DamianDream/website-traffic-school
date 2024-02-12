@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="uk">
 
 <head>
 
@@ -7,13 +7,14 @@
   {{> favicon }}
 
   <title data-lang="page-title">Traffic School - Найкраща школа з арбітражу</title>
+
 </head>
 
 
 <body class="preload">
+  {{> pageLoader}}
   <div class="wrapper">
-
-    <header class="header">
+    <header class="header" id="top">
       <div class="header__container">
         <div class="header__body">
 
@@ -22,13 +23,6 @@
 
             <!-- Navigation -->
             <nav id="primary-navigation" class="navigation-primary">
-
-              <!-- <button navigation-toggle-icon class="navigation-primary__hamburger hamburger hamburger--emphatic"
-                type="button" navigation-toggle aria-expanded="false" aria-controls="primary-nav">
-                <span class="hamburger-box">
-                  <span class="hamburger-inner"></span>
-                </span>
-              </button> -->
 
               <button navigation-toggle aria-expanded="false" aria-controls="primary-nav">
                 <div navigation-toggle-icon class="navigation-primary__hamburger">
@@ -40,21 +34,29 @@
               <div navigation-view class="navigation-primary__body" data-visible="false">
 
                 <div class="navigation-primary__content">
-                  <ul class="navigation-primary__list uppercase">
-                    <li><a href="#" class="navigation-primary__link"><span class="navigation-primary--text"
-                          data-lang="nav__link-1">Link</span></a></li>
-                    <li><a href="#" class="navigation-primary__link"><span class="navigation-primary--text"
-                      data-lang="nav__link-2">Link</span></a></li>
-                      <li><a href="#" class="navigation-primary__link"><span class="navigation-primary--text"
-                          data-lang="nav__link-3">Link</span></a></li>
-                    <li><a href="#" class="navigation-primary__link"><span class="navigation-primary--text"
-                          data-lang="nav__link-4">Link</span></a></li>
+                  <ul class="navigation-primary__list uppercase" id="primary-nav">
+                    <li><a data-link="school" href="#" class="navigation-primary__link"><span class="navigation-primary--text"
+                          data-lang="nav__link-1">
+                          Про навчання
+                        </span></a></li>
+                    <li><a data-link="about" href="#" class="navigation-primary__link"><span class="navigation-primary--text"
+                          data-lang="nav__link-2">
+                          Про нас
+                        </span></a></li>
+                    <li><a data-link="partners" href="#" class="navigation-primary__link"><span class="navigation-primary--text"
+                          data-lang="nav__link-3">
+                          Наші партнери
+                        </span></a></li>
+                    <li><a data-link="contact" href="#" class="navigation-primary__link"><span class="navigation-primary--text"
+                          data-lang="nav__link-4">
+                          Доєднатись
+                        </span></a></li>
                   </ul>
                 </div>
 
-                  <div class="navigation-primary__socials">
-                    Доєднатися до команди
-                  </div>
+                <div class="navigation-primary__socials">
+                  <span data-lang='nav__extra-link'>Доєднатися до команди</span>
+                </div>
 
               </div>
             </nav>
@@ -69,7 +71,7 @@
           </div>
           <!-- Header Control End-->
           <div class="header__reference">
-            <a href="#" class="uppercase reference-link">Доєднатися до команди</a>
+            <a href="#" class="uppercase reference-link" data-lang='reference-link'>Доєднатися до команди</a>
           </div>
         </div>
 
@@ -79,28 +81,29 @@
     <main>
 
       <!-- Hero -->
-      <div class="hero">
-        <section class="hero__container">
-          <div class="hero__body">
-            <h1 class="hero__title title">Готовий навчитися заробляти непристойно багато?</h1>
-            <div class="hero__content">
-              <div class="hero__text description">
-                <p>наші учні вже заробляють +</p>
-                <p><span>500$ </span>на тиждень</p>
-              </div>
-              <div class="hero__button-arrow">
-                <img src="/images/button_arrow.jpg" alt="arrow image">
-              </div>
-              <button type="button" class="hero__button">Доєднатися до команди</button>
-            </div>
-          </div>
-        </section>
-      </div>
+      {{> hero-section}}
       <!-- Hero End -->
+ 
+        <!-- School -->
+        {{> school-section}}
+        <!-- School End-->
+
+        <!-- Reasons -->
+       {{> about-section}}
+       <!-- Reasons End-->
+
+        <!-- Partners -->
+       {{> partners-section}}
+       <!-- Partners End-->
+
+       <!-- Form -->
+       {{> contact-section}}
+       <!-- form End -->
 
     </main>
 
-    {{> footer }}
+    {{> footer}}
+
   </div>
 
   <!-- Modals, PopUp, Toast -->

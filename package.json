@@ -1,8 +1,9 @@
 {
-  "name": "vite-dba-boilerplate",
+  "name": "Traffic School",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.1.2",
   "type": "module",
+  "author": "Batalshikov Dima",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -11,7 +12,6 @@
     "format": "npx prettier --write ."
   },
   "devDependencies": {
-    "@rollup/plugin-dsv": "^3.0.4",
     "autoprefixer": "^10.4.17",
     "cssnano": "^6.0.3",
     "fast-glob": "^3.3.2",
@@ -29,7 +29,6 @@
   },
   "dependencies": {
     "a11y-dialog": "^8.0.4",
-    "gsap": "^3.12.5",
-    "split-type": "^0.3.4"
+    "gsap": "^3.12.5"
   }
 }

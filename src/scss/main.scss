@@ -20,7 +20,7 @@ $breakpoints: (
 }
 
 // Fonts ==============================================================================================================================================================================================================================================================================
-$fontFamily: "Grotesk", san-serif;
+$fontFamily: "Grotesk", "Open Sans", san-serif;
 $fontSize: toRem(16);
 
 // Colors ==============================================================================================================================================================================================================================================================================
@@ -50,8 +50,6 @@ $responsive: true;
 
 @import "@scss/base";
 @import "@scss/abstracts";
-@import "@scss/layout";
-@import "@scss/components";
 
 // import form  styles
 // @import "@scss/components/form/default-form.scss";
@@ -60,9 +58,6 @@ $responsive: true;
 
 // import toast notifications styles
 // @import "@scss/components/toast.scss";
-
-//  Add Icons Font (after import from iconMoon)
-@import "@scss/abstracts/icons.scss";
 
 //  Popup styles 
 // @import "@scss/components/popup.scss";
@@ -82,12 +77,13 @@ body {
 	font-weight: 400;
 	background-color: var(--bg-primary, #000);
 
-	.lock & {
+	&.lock {
 		overflow: hidden;
 		touch-action: none;
 		overscroll-behavior: none;
 	}
-	.loaded & {
+
+	&.loaded {
 	}
 }
 
@@ -157,16 +153,41 @@ Snippet (HTML): cnt
 .title {
 	text-transform: uppercase;
 	font-family: inherit;
-	font-size: toRem(50);
+	@include adaptiveValue("font-size", 50, 16);
 	letter-spacing: var(--text-spacing);
 	text-align: center;
 	word-wrap: break-word;
 	padding-block: 1em;
 }
 
-.description {
+.description-text {
 	text-transform: uppercase;
 	font-family: inherit;
-	font-size: toRem(20);
+	@include adaptiveValue("font-size", 20, 14);
 	letter-spacing: var(--text-spacing);
+}
+
+.section-title {
+	@include adaptiveValue("font-size", 40, 16);
+	font-family: "Grotesk", "Open Sans", san-serif;
+	font-weight: 600;
+	text-transform: uppercase;
+	text-align: center;
+	padding-top: toRem(32);
+	padding-bottom: toRem(32);
+	color: var(--text-accent);
+}
+
+
+.section-sub-title {
+	@include adaptiveValue("font-size", 26, 16);
+	font-family: "Grotesk-Wide", "Open Sans", san-serif;
+	font-weight: 400;
+	text-transform: uppercase;
+	text-align: center;
+	color: var(--text-primary);
+}
+
+form._sending {
+
 }

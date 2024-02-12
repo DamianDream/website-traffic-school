@@ -1,0 +1,111 @@
+.partners {
+    position: relative;
+	min-height: 40vh;
+
+    @include breakpoint("md") {
+        min-height: 50vh;
+          
+    }
+	// .partners__container
+	&__container {
+	}
+	// .partners__content
+	&__content {
+		padding-top: toRem(60);
+	}
+	// .partners__title
+	&__title {
+		// text-align: center;
+		// text-transform: uppercase;
+        // @include adaptiveValue("font-size", 36, 22);
+		// font-weight: 600;
+		// color: var(--text-accent);
+        // padding-bottom: 1em;
+	}
+}
+
+.logos {
+	--clr-gradient: rgba(0, 0, 0, 0);
+
+	overflow: hidden;
+	padding: 60px 0;
+	background: var(--bg-primary);
+	white-space: nowrap;
+	position: relative;
+}
+
+.logos:before,
+.logos:after {
+	position: absolute;
+	top: 0;
+	width: 150px;
+	height: 100%;
+	content: "";
+	z-index: 2;
+
+    @include breakpoint("md") {
+        width: 250px;
+    }
+}
+
+.logos:before {
+	left: 0;
+	background: linear-gradient(to left,  var(--clr-gradient) 0%, var(--bg-primary) 98%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+}
+
+.logos:after {
+	right: 0;
+	background: linear-gradient(to right,  var(--clr-gradient) 0%, var(--bg-primary) 98%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+}
+
+.logos:hover .logos-slide {
+	animation-play-state: paused;
+}
+
+.logos-slide {
+	display: flex;
+	gap: 2em;
+    animation: 25s slide infinite linear;
+
+    @include breakpoint("sm") {
+        animation: 30s slide infinite linear;
+        gap: 3em;
+    }
+    @include breakpoint("md") {
+        animation: 35s slide infinite linear;
+        gap: 4em;
+    }
+}
+
+.slide-item {
+	position: relative;
+    @include adaptiveValue("min-width", 280, 120);
+    @include adaptiveValue("height", 200, 100);
+	background: rgb(28, 28, 28, 0.6);
+	background: linear-gradient(51deg, rgb(28, 28, 28) 0%, rgba(31, 30, 30) 100%);
+    box-shadow: 0 1px 2px rgba(147, 147, 147, 0.4);
+	border-radius: 10px;
+    transition: all 0.3s ease;
+
+
+    &:hover {
+        transform: scale(110%);
+    }
+
+	img {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		height: 80%;
+	}
+}
+
+@keyframes slide {
+	from {
+		transform: translateX(0);
+	}
+	to {
+		transform: translateX(-100%);
+	}
+}

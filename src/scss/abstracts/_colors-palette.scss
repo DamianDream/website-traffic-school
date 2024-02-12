@@ -11,21 +11,27 @@
 :root {
 	// Site colors:
 	// =================================================================
-	--primary: hsl(0, 0%, 13%); 
+	--primary: #0d0e13;
+	// --primary: hsl(0, 33%, 1%); // to dark
+	// --primary: hsl(0, 0%, 13%); // first
+
 	// --secondary: rgb(255 255 255);
-	--accent: hsl(42, 94%, 66%);
-	// --inverse: rgb(255 255 255);
+	--accent: hsl(49, 100%, 55%);
+
+	// --accent: hsl(46, 93%, 67%);
+	--inverse: hsl(0, 0%, 100%);
 
 	// Background colors
 	// =================================================================
 	--bg-primary: var(--primary);
-	--bg-secondary: hsl(220, 10%, 94%);
+	--bg-secondary: var(--inverse);
 	--bg-accent: var(--accent);
+	--bg-footer: var(--inverse);
 	// --bg-inverse: rgb(255 255 255); 
 
 	// Text colors
 	// =================================================================
-	--text-primary: hsl(220, 10%, 94%);
+	--text-primary: var(--inverse);
 	--text-secondary:  var(--primary);
 	--text-accent: var(--accent);
 	// --text-inverse: rgb(0 0 0); 

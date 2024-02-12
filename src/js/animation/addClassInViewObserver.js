@@ -1,15 +1,18 @@
 // Expect selector and  class, func to add
 // Usage: addClassInViewObserver('.num-anim', 'classToAdd')
+import { animateValue } from '@js/animation/animateValues.js';
 
-export const addClassInViewObserver = (selectAll, addClass) => {
-
+export const addClassInViewObserver = (selectAll) => {
     let elements = document.querySelectorAll(selectAll);
 
     const observer = new IntersectionObserver(entries => {
-        console.log(entries);
         entries.forEach(entry => {
 
-            entry.target.classList.toggle(addClass, entry.isIntersecting);
+            if (entry.isIntersecting) {
+                setTimeout(() => {
+                    animateValue(entry.target, 0, +entry.target.textContent, 1000);
+                }, 250)
+            }
 
             // Stop observing the element "run once"
             if (entry.isIntersecting) observer.unobserve(entry.target);
@@ -22,7 +25,7 @@ export const addClassInViewObserver = (selectAll, addClass) => {
             // 1 - 100%
             threshold: 1,
             // --- Add margin to the bottom of the page to trigger the observer "container size"
-            // rootMargin: '100px',
+            // rootMargin: '600px',
         })
     })
 

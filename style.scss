@@ -1,3 +1,18 @@
 
 // Base page style imports and configuration
 @import "@scss/main";
+
+// Layout
+@import "@scss/layout/header";
+@import "@scss/layout/navigation";
+
+// --- Sections
+@import "@scss/layout/hero-section";
+@import "@scss/layout/about-section";
+@import "@scss/layout/school-section";
+@import "@scss/layout/contact-section";
+@import "@scss/layout/partners-section";
+
+// --- Footer
+@import "@scss/layout/footer";
+

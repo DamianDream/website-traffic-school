@@ -38,7 +38,6 @@
 	font-weight: 400;
 	font-family: "Grotesk-Wide";
 	@include adaptiveValue("font-size", 18, 12);
-	// font-size: toRem(16);
 	letter-spacing: var(--text-spacing-2);
 	text-wrap: nowrap;
 
@@ -49,33 +48,6 @@
 	&:hover {
 		color: color-mix(in lch, var(--text-accent) 80%, rgb(255, 255, 255));
 	}
-}
-
-.navigation-primary {
-	// .navigation-primary__hamburger
-	&__hamburger {
-	}
-	// .navigation-primary__list
-	&__list {
-	}
-	// .navigation-primary__body
-	&__body {
-	}
-	// .navigation-primary__link
-	&__link {
-	}
-}
-.hamburger {
-}
-.hamburger--emphatic {
-}
-.hamburger-box {
-}
-.hamburger-inner {
-}
-.uppercase {
-}
-.navigation-primary--text {
 }
 
 .language-toggle {

@@ -1,24 +1,109 @@
 .hero {
-    // .hero__container
-    &__container {
-    }
-    // .hero__body
-    &__body {
-    }
-    // .hero__title
-    &__title {
-    }
-    // .hero__content
-    &__content {
-    }
-    // .hero__text
-    &__text {
-    }
-    // .hero__button
-    &__button {
+	min-height: 86vh;
+	display: grid;
+	place-content: center;
+    gap: 2em;
+    
+	// .hero__content
+	&__content {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: auto;
+        grid-template-areas: 
+            "link link"
+            "text text";
+        row-gap: 1em;
+
+        @include breakpoint("lg") {
+            grid-template-areas: 
+            "text text"
+            "link ---";
+        }
+
+	}
+	// .hero__text
+	&__text {
+	}
+	// .hero__button
+	&__button {
+        grid-area: link;
+        text-align: center;
         
+        @include breakpoint("lg") {
+            text-align: end;
+        }
+	}
+}
+
+.description {
+    grid-area: text;
+    display: flex;
+    justify-content: center;
+    gap: 0.4em;
+    
+    @include breakpoint("lg") {
+        justify-content: flex-end;
+        max-width: 85%;
     }
-    // .hero__button-arrow
-    &__button-arrow {
+    
+	&__arrow {
+        display: none;
+
+        @include breakpoint("lg") {
+            margin-right: 10px;
+            display: block;
+            width: 40px;
+            -moz-transform: scaleY(-1);
+            -o-transform: scaleY(-1);
+            -webkit-transform: scaleY(-1);
+            transform: scaleY(-1);
+            filter: FlipV;
+            -ms-filter: "FlipV";
+    
+            img {
+                z-index: 1;
+                transform: rotate(-90deg);
+            }
+        }
+
+	}
+	&__text {
+        min-width: 20ch;
+        text-align: center;
+        @include adaptiveValue("padding-top", 10, 40);
+        
+        @include breakpoint("md") {
+            text-wrap: nowrap;
+            text-align: end;
+        }
+
+        &--accent {
+            color: var(--text-accent);
+        }
+	}
+}
+
+// Hero page button
+.btn-main {
+    text-transform: uppercase;
+    color: var(--text-secondary);
+    background-color: var(--bg-accent);
+    @include adaptiveValue("font-size", 22, 14);
+    letter-spacing: var(--text-spacing);
+    font-family: "Grotesk-Wide";
+    font-weight: 700;
+    @include adaptiveValue("padding", 24, 16);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    
+    @include breakpoint("sm") {
+        text-wrap: nowrap;
+    }
+    
+    &:hover {
+        transform: translate3d(0, -4px, 0);
+        box-shadow: 6px 6px 0 0 rgba(255 255 255 / 1);
+        &::before {
+        }
     }
 }

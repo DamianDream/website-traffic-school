@@ -7,14 +7,16 @@
 		top: 5%;
 		right: 20px;
         z-index: 10;
+		width: fit-content;
 
 		@include breakpoint("md") {
-			top: toRem(40);
-			left: toRem(40);
+			top: 30px;
+			left: 30px;
 		}
 	}
 
 	&__hamburger {
+		margin: 0.5em;
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
@@ -22,6 +24,15 @@
 		width: 70px;
 		height: 28px;
 		cursor: pointer;
+
+		&:hover span {
+			&:first-child{
+				width: 100%;
+			}
+			&:last-child {
+				width: 60%;
+			}
+		}
 
 		span {
 			width: 100%;
@@ -38,6 +49,9 @@
 			}
 
 		}
+		&.is-active {
+			transition: all 0.3s ease-in-out 0.1s;
+		}
 
 		&.is-active span {
 			width: 70%;
@@ -49,6 +63,13 @@
 			&:last-child {
 				transform: rotate(-45deg) translate(10px, -7px);
 			}
+		}
+		&.is-active:hover span{
+			width: 70%;
+		}
+		&.is-active:hover {
+			transform-origin: 38.5%;
+			transform: rotate(90deg);
 		}
 	}
 	// full screen navigation page
@@ -63,6 +84,7 @@
 		min-width: 100vw;
 		background-color: var(--bg-secondary);
         transition: transform 0.3s ease-in-out;
+		z-index: 2;
 
 		&[data-visible='true'] {
 			transform: translateX(0%);
@@ -74,9 +96,10 @@
 
 	&__content {
 		justify-self: center;
+		@include adaptiveValue("padding-top", 60, 40);
 
 		@include breakpoint("md") {
-			min-width: 80vw;
+			min-width: 84vw;
 			min-height: 60vw;
 		}
 	}
@@ -84,13 +107,44 @@
 		padding-top: toRem(40);
 		display: grid;
 		gap: 2em;
+
+		@include breakpoint("md") {
+			padding-top: 5vh;
+		}
 	}
 	// .navigation-primary__link
 	&__link {
-		@include adaptiveValue("font-size", 62, 38);
+		position: relative;
+		@include adaptiveValue("font-size", 56, 20);
 		font-weight: 600;
 		color: var(--text-secondary);
 		letter-spacing: var(--text-spacing);
+		transition: 0.3s  ease;
+		z-index: 2;
+
+		&::after {
+			content: '';
+			position: absolute;
+			width: 100%;
+			height: 120%;
+			background-color: var(--text-accent);
+			bottom: 0;
+			left: 0;
+			transform-origin: right;
+			transform: scaleX(0);
+			transition: transform .3s ease-in-out;
+			z-index: -1;
+		}
+
+		&:hover {
+			color: var(--text-primary);
+
+			&::after {
+				transform-origin: left;
+				transform: scaleX(1);
+			  }
+		}
+
 	}
 
 	&__socials {

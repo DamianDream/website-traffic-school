@@ -1,6 +1,15 @@
-import translate from './lang/language.json';
 
-const langSelect = () => {
+// FUnction expect file JSON with translation
+const langSelect = (text) => {
+
+    if  (!text) {
+        console.error("Not found file with translate");
+        return
+    }
+
+        // Check isTranslation Required 
+        // if (currentLang === "ua") return
+
     const langControl = document.getElementById("language-toggle")
 
     // stop if node not exist
@@ -8,31 +17,37 @@ const langSelect = () => {
         console.error("Not found language control Node", langControl);
         return
     }
-
+    
     const activeClass ="language-toggle__btn--active"
     const langButtons = document.querySelectorAll("[data-btn]")
     const allLangs = ["ru", "ua"]
-    let currentLang = localStorage.getItem("language") || "ua"
-    let currentText = translate || {}
+    const defaultLang = "ua"
+    let currentLang = localStorage.getItem("language") || defaultLang
     
     // Change language
     function changeLang() {
-        for (const key in currentText) {
+        for (const key in text) {
             let elem = document.querySelector(`[data-lang=${key}]`);
             if (elem) {
-                elem.textContent = currentText[key][currentLang];
+                elem.textContent = text[key][currentLang];
             }
         }
     }
 
+
     // Eventlistener for Lang select btns
     langControl.addEventListener("click", (e) => {
        if(e.target.dataset.btn && !e.target.classList.contains(activeClass)) {
-        handleLanguageSelect(e.target)
+
+        // Check is selected language not current
+        if(e.target.dataset.btn !== currentLang) {
+            handleLanguageSelect(e.target)
+        }
 
         // translateForm(currentLang, translate.formTranslate)
        }
     })
+
 
     function handleLanguageSelect(el) {
         currentLang = el.dataset.btn
@@ -70,6 +85,11 @@ const langSelect = () => {
     }
 
     checkActiveLangButton();
+
+    // check is language already was selected in previous session or on another page
+    if(localStorage.getItem("language") !== defaultLang) {
+        changeLang()
+    }
 
     //  translate form placeholders and value
     // function translateForm(lang, trans) {

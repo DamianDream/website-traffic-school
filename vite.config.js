@@ -8,8 +8,6 @@ import imagemin from 'imagemin'
 import imageminWebp from 'imagemin-webp'
 import removeConsole from "vite-plugin-remove-console"
 import { viteStaticCopy } from 'vite-plugin-static-copy'
-import dsv from '@rollup/plugin-dsv'
-
 
 // ------------ Fast Dev Config 
 
@@ -50,10 +48,6 @@ export default defineConfig(({ command, mode, isSsrBuild, isPreview }) => {
                 "@js": resolve(__dirname, './src/js'),
             }
         },
-
-        // --- Server Configuration
-        // server: { port: '5000' },
-        // preview: { port: '5001' },
 
          // --- Bundling
         css: {
@@ -110,11 +104,7 @@ export default defineConfig(({ command, mode, isSsrBuild, isPreview }) => {
                 ]
             }),
             //  Remove consoles only for production )
-            rmConsoleLogs && removeConsole(),
-
-            //  --- Rollup Plugins 
-            // Plugin to parse and convert CSV and TSV files
-            dsv(),
+            rmConsoleLogs && removeConsole()
         ]
     }
 })

@@ -1,16 +1,19 @@
  <!-- Loader -->
- <div class="counter">0</div>
- <div class="overlay">
-   <div class="bar"></div>
-   <div class="bar"></div>
-   <div class="bar"></div>
-   <div class="bar"></div>
-   <div class="bar"></div>
-   <div class="bar"></div>
-   <div class="bar"></div>
-   <div class="bar"></div>
-   <div class="bar"></div>
-   <div class="bar"></div>
+
+ <div class="loader">
+     <div class="counter">0</div>
+     <div class="overlay">
+       <div class="bar"></div>
+       <div class="bar"></div>
+       <div class="bar"></div>
+       <div class="bar"></div>
+       <div class="bar"></div>
+       <div class="bar"></div>
+       <div class="bar"></div>
+       <div class="bar"></div>
+       <div class="bar"></div>
+       <div class="bar"></div>
+     </div>
  </div>
  
  <style>
@@ -33,10 +36,11 @@
         display: flex;
         justify-content: flex-end;
         align-items: flex-end;
-        color: #fff;
+        color: var(--accent);
         z-index: 1000;
         padding: .2em .4em;
-        font-size: 10vw;
-        font-family: monospace, sans-serif;
+        font-size: 8vh;
+        font-family: "Grotesk", monospace, sans-serif;
+        font-weight: 600;
     }
  </style>
