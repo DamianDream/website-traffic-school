@@ -12,8 +12,8 @@ import { viteStaticCopy } from 'vite-plugin-static-copy'
 // ------------ Fast Dev Config 
 
 //  ? Build for GitHub Pages ?
-const gitHubPages = false
-const gitHubPagesRepository = "/vite-boilerplate-js/"
+const gitHubPages = true
+const gitHubPagesRepository = "/website-traffic-school/"
 // repository is at https://github.com/<USERNAME>/<REPO>
 // f publish on github-pages we should indicate Repository name <REPO>
 
