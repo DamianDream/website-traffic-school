@@ -39,23 +39,26 @@
                     <!-- name -->
                     <div class="form__item">
                         <input tabindex="1" type="text" data-input="text" id="formName" name="name" class="form__input _req" required
-                            pattern="[А-Яа-яA-Za-z ]{3,30}" minlength="3" maxlength="30" autocomplete="on" title="Тільки літери і не менше ніж 3." value="User Name">
-                        <label for="formName" class="form__label">Ваше ім'я</label>
+                            pattern="[А-Яа-яA-Za-z ]{3,30}" minlength="3" maxlength="30" autocomplete="on" title="Тільки літери і не менше ніж 3."
+                            placeholder="Вкажіть ім'я">
+                        <!-- <label for="formName" class="form__label">Ваше ім'я</label> -->
                     </div>
 
                     <!-- telegram -->
                     <div class="form__item">
                         <input tabindex="2" type="text" data-input="telegram" id="formTelegram" title="Не менше ніж 4 літери" name="telegram" class="form__input _req"
-                            required pattern="[A-Za-z0-9_@]{4,36}" minlength="4" maxlength="36" value="my_telegram_name">
-                        <label for="formTelegram" class="form__label">Вкажіть свій телеграм*</label>
+                            required pattern="[A-Za-z0-9_@]{4,36}" minlength="4" maxlength="36"
+                            placeholder="Вкажіть свій телеграм*">
+                        <!-- <label for="formTelegram" class="form__label">Вкажіть свій телеграм*</label> -->
                     </div>
 
                     <!-- phone -->
                     <div class="form__item">
                         <input tabindex="3" type="tel" data-input="phone" id="formPhone" name="phone" class="form__input" 
-                        pattern="^\d{5}-\d{3}-\d{4}$" value="38044-123-4567">
+                        pattern="^\d{5}-\d{3}-\d{4}$" 
+                        placeholder="Вкажіть телефон">
                         <!-- 38044-123-4567 -->
-                        <label for="formPhone" class="form__label">Вкажіть телефон</label>
+                        <!-- <label for="formPhone" class="form__label">Вкажіть телефон</label> -->
                     </div>
                     <div class="form__item--tip">Приклад: 38011-333-4444</div>
 
