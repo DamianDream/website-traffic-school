@@ -51,17 +51,6 @@ $responsive: true;
 @import "@scss/base";
 @import "@scss/abstracts";
 
-// import form  styles
-// @import "@scss/components/form/default-form.scss";
-// @import "@scss/components/form/select.scss";
-// @import "@scss/components/form/default-form-select.scss";
-
-// import toast notifications styles
-// @import "@scss/components/toast.scss";
-
-//  Popup styles 
-// @import "@scss/components/popup.scss";
-
 // Body ==============================================================================================================================================================================================================================================================================
 
 html,
@@ -178,7 +167,6 @@ Snippet (HTML): cnt
 	color: var(--text-accent);
 }
 
-
 .section-sub-title {
 	@include adaptiveValue("font-size", 26, 16);
 	font-family: "Grotesk-Wide", "Open Sans", san-serif;
@@ -186,8 +174,4 @@ Snippet (HTML): cnt
 	text-transform: uppercase;
 	text-align: center;
 	color: var(--text-primary);
-}
-
-form._sending {
-
 }

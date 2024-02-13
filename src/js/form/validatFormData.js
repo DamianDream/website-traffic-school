@@ -1,96 +1,87 @@
-export const emailTest =( email ) => {
+export const emailTest = (email) => {
 	// console.log("emailTest", email); // => log
 	const regex = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,8})+$/;
-	return regex.test( email );
+	return regex.test(email);
+};
+
+// Telegram========================================================================================================================================================
+
+export const telegramTest = (value) => {
+	let error = false;
+
+	if (value == "") {
+		console.error("Telegram ID must be filled out");
+		error = true;
+	} else if (value.length > 36) {
+		console.error("Telegram ID cannot be more than 36 characters");
+		error = true;
+	} else if (value.length < 4) {
+		console.error("Telegram ID cannot be less than 4 characters");
+		error = true;
+	} else if (/[^A-Za-z0-9_@а-яА-ЯёЁіІїЇєЄ]/g.test(value)) {
+		console.error("Telegram ID can only contain alphanumeric, number and symbols @, -, _");
+		error = true;
+	}
+	return error;
 }
 
-// export const telegramTest = ( selector = 'input[id="telegram"]') => {
-// 	const input = document.querySelector(selector)
-// 	console.log("telegramTest", input); // => log
-	
-// 	if (!input) {
-// 		console.error("Failed test telegram input", selector)
-// 		return false
-// 	}
-	
-// 	const value = input.value
-// 	value = value.replace(/[^A-Za-z0-9_@а-яА-ЯёЁіІїЇєЄ]/g, '');
+//========================================================================================================================================================
+export const nameTest = (name) => {
+	let error = false;
 
-// 	if (value.charAt(0) !== '@') {
-// 		value = '@' + value;
-// 	  }
-
-// 	// We limit the input only to letters, numbers and the underscore character after the dog
-//     let atIndex = value.indexOf('@');
-//     if (atIndex !== -1) {
-//       let nickname = value.substring(atIndex + 1);
-//       nickname = nickname.replace(/[^A-Za-z0-9_а-яА-ЯёЁіІїЇєЄ]/g, '');
-//       value = value.substring(0, atIndex + 1) + nickname;
-//     }
-
-// 	 // update value
-// 	 input.val(value);
-
-// 	 // Update placeholder
-// 	 if (value.trim().length === 0) {
-// 		input.attr('placeholder', '@telegram_nickname');
-// 	 }
-// }
-
-// export const telegramDeleteValue = (selector = 'input[id="telegram"]') => {
-// 	document.querySelector(selector).addEventListener('keydown', function(e) {
-// 		let keyCode = e.keyCode || e.which;
-
-// 		// We delete the dog along with the contents of the field when using the key "Delete" || "Backspace"
-// 		if (keyCode === 8 || keyCode === 46) {
-// 			var input = $(this);
-// 			var value = input.val();
-	
-// 			if (value.charAt(0) === '@') {
-// 			value = value.substring(1);
-// 			}
-	
-// 			input.val(value);
-// 		}
-// 	})
-// }
+	if (name == "") {
+		console.error("Family name must be filled out");
+		error = true;
+	} else if (name.length > 35) {
+		console.error("Name cannot be more than 35 characters");
+		error = true;
+	} else if (name.length < 2) {
+		console.error("Name cannot be more than 35 characters");
+		error = true;
+	} 
+	else if (/[^А-Яа-яA-Za-z ]/.test(name)) {
+		console.error("Family name can only contain alphanumeric characters and spaces");
+		error = true;
+	}
+	return error;
+};
 
 // File Input Image Validation ========================================================================================================================================================
 
 export const fileTypeCheck = (file) => {
-	let check = false
+	let check = false;
 
 	if (!file) {
 		console.error("Error: File missing");
-		return check
+		return check;
 	}
 
-	const allowedTypes = ['image/png', 'image/jpeg', 'image/jpg'];
+	const allowedTypes = ["image/png", "image/jpeg", "image/jpg"];
 	if (allowedTypes.includes(file.type)) {
-		check = true
+		check = true;
 	} else {
-		console.error("File type is not allowed")
+		console.error("File type is not allowed");
 	}
-	return check
-}
+	return check;
+};
 
 export const fileSizeCheck = (file, maxSize = 2) => {
-	let check = false
+	let check = false;
 	if (!file) {
 		console.error("Error: File missing");
-		return check
+		return check;
 	}
 	// By default2 Mb file size allowed
-	const allowedSize = 1024 * 1024 * maxSize; 
-	const errMsg = `File size should be less than ${maxSize} Mb`
+	const allowedSize = 1024 * 1024 * maxSize;
+	const errMsg = `File size should be less than ${maxSize} Mb`;
 
-	if(file.size > allowedSize) {
-		console.error(errMsg)
+	if (file.size > allowedSize) {
+		console.error(errMsg);
 	} else {
-		check =  true
+		check = true;
 	}
-	return check
-}
+	return check;
+};
 
 // upload image file check
 //  Function expect object with: file, input, test functions as Array
@@ -103,59 +94,61 @@ export const fileSizeCheck = (file, maxSize = 2) => {
 //     ]
 // }
 export const uploadImageFileCheck = (testConfigObject) => {
-	let check = false
+	let check = false;
 
 	// checks test
 	try {
-		const { file, input, ...test} = testConfigObject
+		const { file, input, ...test } = testConfigObject;
 		if (!file || !input) {
 			console.error("File check error: File or Input missing");
-			return check
-		}   
+			return check;
+		}
 
-		test.testFunctions.forEach(test => check = test(file))
+		test.testFunctions.forEach((test) => (check = test(file)));
 
-		if(!check) {
+		if (!check) {
 			console.error("File check: Failed!");
-			input.value = ""
-			return check
-		} 
+			input.value = "";
+			return check;
+		}
 	} catch (error) {
 		console.error("File check: ", error);
-	}   
+	}
 
-	return check
-}
+	return check;
+};
 
 // Create image file preview and inject in to HTML Preview Node========================================================================================================================================================
 export const createImagePreview = (previewNodeSelector, image) => {
 	if (!previewNodeSelector) {
 		console.error("Error: Preview node selector not provided");
-		return
+		return;
 	}
 	const imagePreviewNode = form.querySelector(previewNodeSelector);
 
 	try {
 		const reader = new FileReader();
-		reader.onload = function(e) {
+		reader.onload = function (e) {
 			imagePreviewNode.innerHTML = `<image src="${e.target.result}" alt="Preview image"/>`;
-		}
-		reader.onerror = function(e) {
-			alert("No render image")
-		}
+		};
+		reader.onerror = function (e) {
+			alert("No render image");
+		};
 		reader.readAsDataURL(image);
 	} catch (error) {
 		console.error("Failed read and create image preview");
 	}
-}
+};
 
 // Add & Remove Error Class ========================================================================================================================================================
 
 export const addError = (input, className) => {
-	input.parentElement.classList.add(className)
-	input.classList.add(className)
-}
-export const  removeError = (input, className) => {
-	input.parentElement.classList.remove(className)
-	input.classList.remove(className)
-}
+	input.parentElement.classList.add(className);
+	input.classList.add(className);
+	input.nextElementSibling.classList.add(className);
+};
+export const removeError = (input, className) => {
+	input.parentElement.classList.remove(className);
+	input.classList.remove(className);
+	input.nextElementSibling.classList.remove(className);
+};

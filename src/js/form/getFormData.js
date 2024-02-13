@@ -11,7 +11,18 @@ export const getAllFormDataObject = (formSelectorID) => {
         // Iterate via form object
         for(let [key, value] of formData) {
             if(value !== '') {
-                data[key] = (typeof value === "string") ? value.trim() : value
+                if(key === 'agreement') {
+                    data[key] = value === "on"
+                } else if(key === 'telegram') {
+
+                    if (value.charAt(0) !== '@') {
+                        value = '@' + value;
+                      }
+
+                    data[key] =  value
+                } else {
+                    data[key] = (typeof value === "string") ? value.trim() : value
+                }
             }
         }
     } catch (error) {

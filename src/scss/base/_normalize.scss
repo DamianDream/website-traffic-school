@@ -14,12 +14,6 @@
     border: 1px solid red;
 }
 
-// TODO: Check if this is still needed
-//  *:where(:not(html, iframe, canvas, img, svg, video, audio):not(svg *, symbol *)) {
-//     all: unset;
-//     display: revert;
-// }
-
 /* Preferred box-sizing value */
 *,
 *::before,

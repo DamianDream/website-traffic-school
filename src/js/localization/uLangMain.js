@@ -7,9 +7,6 @@ const langSelect = (text) => {
         return
     }
 
-        // Check isTranslation Required 
-        // if (currentLang === "ua") return
-
     const langControl = document.getElementById("language-toggle")
 
     // stop if node not exist
@@ -26,6 +23,7 @@ const langSelect = (text) => {
     
     // Change language
     function changeLang() {
+        translateForm(currentLang, text.formTranslate)
         for (const key in text) {
             let elem = document.querySelector(`[data-lang=${key}]`);
             if (elem) {
@@ -43,8 +41,6 @@ const langSelect = (text) => {
         if(e.target.dataset.btn !== currentLang) {
             handleLanguageSelect(e.target)
         }
-
-        // translateForm(currentLang, translate.formTranslate)
        }
     })
 
@@ -92,15 +88,13 @@ const langSelect = (text) => {
     }
 
     //  translate form placeholders and value
-    // function translateForm(lang, trans) {
-    //     Object.entries(trans[`${lang}`]).forEach(item => {
-    //         if (item[0] !== 'submit') {
-    //             document.getElementsByName(`${item[0]}`)[0].placeholder=`${item[1]}`;
-    //         } else {
-    //             document.getElementsByName(`${item[0]}`)[0].value=`${item[1]}`;
-    //         }
-    //     })
-    // }
+    function translateForm(lang, trans) {
+        console.log(lang);
+        console.log(trans);
+        Object.entries(trans[`${lang}`]).forEach(item => {
+            document.getElementsByName(`${item[0]}`)[0].placeholder=`${item[1]}`;
+        })
+    }
 }
     
 export default langSelect;

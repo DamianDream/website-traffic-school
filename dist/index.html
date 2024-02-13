@@ -17,13 +17,15 @@
 
   <title data-lang="page-title">Traffic School - Найкраща школа з арбітражу</title>
 
-  <script type="module" crossorigin src="./assets/index-uONiO6eM.js"></script>
+  <script type="module" crossorigin src="./assets/index-i2Tgelc7.js"></script>
   <link rel="modulepreload" crossorigin href="./assets/appStart-YRy6sy2B.js">
-  <link rel="stylesheet" crossorigin href="./assets/index-2F66bJIO.css">
+  <link rel="stylesheet" crossorigin href="./assets/index-yrKMxZBU.css">
 </head>
 
 
 <body class="preload">
+  
+  <!-- preloader -->
    <!-- Loader -->
   
    <div class="loader">
@@ -43,6 +45,8 @@
    </div>
    
    <style>.overlay{display:flex;height:100vh;position:fixed;width:100vw;z-index:100}.bar{background-color:#000;height:105vh;width:10vw}.counter{align-items:flex-end;color:var(--accent);display:flex;font-family:Grotesk,monospace,sans-serif;font-size:8vh;font-weight:600;height:100%;justify-content:flex-end;padding:.2em .4em;position:fixed;width:100%;z-index:1000}</style>
+  <!-- preloader end-->
+
   <div class="wrapper">
     <header class="header" id="top">
       <div class="header__container">
@@ -425,7 +429,7 @@
                <div class="contact__form form">
                    <div form-view class="form__body" data-visible="false" aria-label="contact-form">
        
-                       <form action="#" id="form" class="form__body">
+                       <form action="#" id="form" tabindex="1" class="">
        
                            <button id="formCloseBtn" aria-controls="contact-form">
                                <div class="form__close-button">
@@ -434,61 +438,61 @@
                                </div>
                            </button>
        
-                           <h2 class="form__title">ЗАПОВНІТЬ ФОРМУ</h2>
+                           <h2 class="form__title" data-lang='form__title'>ЗАПОВНІТЬ ФОРМУ</h2>
        
                            <!-- name -->
                            <div class="form__item">
-                               <input tabindex="1" type="text" data-input="text" id="formName" name="name" class="form__input _req" required
-                                   pattern="[А-Яа-яA-Za-z ]{3,30}" minlength="3" maxlength="30" autocomplete="on" title="Тільки літери і не менше ніж 3."
-                                   placeholder="Вкажіть ім'я">
-                               <!-- <label for="formName" class="form__label">Ваше ім'я</label> -->
+                               <input tabindex="2" type="text" data-input="name" id="formName" name="name" class="form__input _req" required
+                               minlength="3" maxlength="30" autocomplete="on"
+                               placeholder="Вкажіть ім'я*">
+                               <span class="form__item-error-text" data-lang='form-name-error'>Ім'я має містити тільки літери</span>
                            </div>
        
                            <!-- telegram -->
                            <div class="form__item">
-                               <input tabindex="2" type="text" data-input="telegram" id="formTelegram" title="Не менше ніж 4 літери" name="telegram" class="form__input _req"
-                                   required pattern="[A-Za-z0-9_@]{4,36}" minlength="4" maxlength="36"
+                               <input tabindex="3" type="text" data-input="telegram" id="formTelegram" title="Не менше ніж 4 літери" name="telegram" class="form__input _req"
+                                   required minlength="4" maxlength="36"
                                    placeholder="Вкажіть свій телеграм*">
-                               <!-- <label for="formTelegram" class="form__label">Вкажіть свій телеграм*</label> -->
+                                   <span class="form__item-error-text" data-lang='form-telegram-error'>Приклад: @my_telegram</span>
                            </div>
        
                            <!-- phone -->
                            <div class="form__item">
-                               <input tabindex="3" type="tel" data-input="phone" id="formPhone" name="phone" class="form__input" 
+                               <input tabindex="4" type="tel" data-input="phone" id="formPhone" name="phone" class="form__input"
                                pattern="^\d{5}-\d{3}-\d{4}$" 
                                placeholder="Вкажіть телефон">
-                               <!-- 38044-123-4567 -->
-                               <!-- <label for="formPhone" class="form__label">Вкажіть телефон</label> -->
+                               <span class="form__item-error-text _error" data-lang='form-phone-error'></span>
                            </div>
-                           <div class="form__item--tip">Приклад: 38011-333-4444</div>
+                           <div class="form__item--tip" data-lang='form-phone-tip'>Приклад: 38011-333-4444</div>
        
                            <!-- select -->
                            <div class="form__item">
-                               <select tabindex="4" name="select" id="formSelect" class="formSelect" data-input="select">
-                                   <option value="" class="select__option">Звідки дізнались про нас:</option>
-                                   <option value="smm" class="select__option">Реклами</option>
-                                   <option value="friend" class="select__option">Від друзів</option>
-                                   <option value="other" class="select__option">Інше</option>
-                               </select>
+                               <div class="formSelect">
+                                   <select tabindex="5" name="select" id="formSelect" class="" data-input="select">
+                                       <option value="" class="select__option" data-lang='select-option-1' disabled selected>Звідки дізнались про нас?</option>
+                                       <option value="media-smm" class="select__option" data-lang='select-option-2'>Реклама</option>
+                                       <option value="friends" class="select__option" data-lang='select-option-3'>Від друзів</option>
+                                       <option value="other" class="select__option" data-lang='select-option-4'>Інше</option>
+                                   </select>
+                               </div>
                            </div>
        
                            <!-- checkbox -->
                            <div class="form__item">
                                <div class="checkbox">
-                                   <input tabindex="5" type="checkbox" data-input="checkbox" id="formAgreement" name="agreement"
-                                       class="checkbox__input _req" required checked>
+                                   <input tabindex="6" type="checkbox" data-input="checkbox" id="formAgreement" name="agreement"
+                                       class="checkbox__input _req" required>
                                    <label for="formAgreement" class="checkbox__label">
-                                       <span>Я даю згоду на обробку персональних даних</span>
+                                       <span data-lang='form-checkbox__input'>Я даю згоду на обробку персональних даних</span>
                                    </label>
                                </div>
                            </div>
        
-                           <button tabindex="6" type="submit" class="form__submit">Відправити</button>
+                           <button tabindex="7" type="submit" class="form__submit">НАДІСЛАТИ</button>
        
                            <div class="form__info">
-                               <a href="./pages/public-offer/index.html" target="_blank">Політика Конфіденційності</a>
+                               <a href="./pages/public-offer/index.html" target="_blank" tabindex="8" data-lang='form__info-link'>Політика Конфіденційності</a>
                            </div>
-                           <!-- </div> -->
                        </form>
                    </div>
        
@@ -602,6 +606,51 @@
   </div>
 
   <!-- Modals, PopUp, Toast -->
+  <div 
+  	class="dialog-container" 
+  	id="my-dialog" 
+  	aria-hidden="true" 
+  	aria-labelledby="my-dialog-title"
+  	aria-describedby="my-dialog-description">
+  
+  	<div class="dialog-overlay" data-a11y-dialog-hide></div>
+  	<div class="dialog-content" role="document">
+  
+  		<button data-a11y-dialog-hide class="dialog-close" aria-label="Close this dialog window">
+  			<svg class="svg-icon" viewBox="0 0 20 20">
+  				<path fill="currentcolor"
+  					d="M15.898,4.045c-0.271-0.272-0.713-0.272-0.986,0l-4.71,4.711L5.493,4.045c-0.272-0.272-0.714-0.272-0.986,0s-0.272,0.714,0,0.986l4.709,4.711l-4.71,4.711c-0.272,0.271-0.272,0.713,0,0.986c0.136,0.136,0.314,0.203,0.492,0.203c0.179,0,0.357-0.067,0.493-0.203l4.711-4.711l4.71,4.711c0.137,0.136,0.314,0.203,0.494,0.203c0.178,0,0.355-0.067,0.492-0.203c0.273-0.273,0.273-0.715,0-0.986l-4.711-4.711l4.711-4.711C16.172,4.759,16.172,4.317,15.898,4.045z">
+  				</path>
+  			</svg>
+  		</button>
+  
+  		<div class="popup popup_success _popup_hidden">
+  			<h3 data-lang='popup_title-success' class="popup_title">
+  				Дякую за ваш час!
+  			</h3>
+  			<h4 data-lang='popup_sub-title-success' class="popup_sub-title">
+  				Усі данні відправлено успішно.
+  			</h4>
+  			<p data-lang='popup_text-success' class="popup_text">
+  				Найближчим часом наш менеджер зв'яжеться з вами.
+  			</p>
+  		</div>
+  
+  		<div class="popup popup_error">
+  			<h3 data-lang='popup_title-error' class="popup_title">
+  				Нам дуже шкода, виникла помилка!
+  			</h3>
+  			<h4 data-lang='popup_sub-title-error' class="popup_sub-title">
+  				Ми вже працюємо над виріщеням цієї проблеми.
+  			</h4>
+  			<p class="popup_text">
+  				<span data-lang='popup_text-error'>Спробуйте пізніше. Якщо проблема не вирішена, зверніться до нас.</span>
+  				<a href="https://t.me/traffic_school_support" target="_blank">Traffic School Support</a>
+  			</p>
+  		</div>
+  
+  	</div>
+  </div>
 
 </body>
 

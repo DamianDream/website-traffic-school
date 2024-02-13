@@ -18,7 +18,7 @@
    *    dialog.
    */
  .dialog-container {
-   z-index: 2; /* 1 */
+   z-index: 1000; /* 1 */
    display: flex; /* 2 */
  }
  
@@ -34,7 +34,7 @@
    * 1. Make the overlay look like an overlay.
    */
  .dialog-overlay {
-   background-color: rgb(43 46 56 / 0.9); /* 1 */
+   background-color: rgb(43 46 56 / 0.6);
    animation: fade-in 200ms both;
  }
  
@@ -45,9 +45,10 @@
    */
  .dialog-content {
    margin: auto; /* 1 */
-   z-index: 2; /* 2 */
+   z-index: 2000; /* 2 */
    position: relative; /* 2 */
    background-color: white; /* 3 */
+   color: var(--text-secondary);
  
    animation: fade-in 400ms 200ms both, slide-up 400ms 200ms both;
    padding: 1em;
@@ -81,9 +82,12 @@
    }
  }
  
- .dialog-content h1 {
-   margin: 0;
-   font-size: 1.25em;
+ .dialog-content {
+ }
+
+ ._popup_hidden {
+  display: none;
+  visibility: hidden;
  }
  
  .dialog-close {
@@ -112,3 +116,69 @@
 	 right: 1em;
    }
  }
+
+
+ .popup {
+    text-align: center;
+
+    @include breakpoint("sm") {
+      text-align: start;
+    }
+
+    h4 {
+      padding: 0.5em;
+      color: var(--text-primary);
+      border-radius: 8px;
+    }
+
+  // .popup_success
+  &_success {
+    h4 {
+      background-color: green;
+    }
+  }
+  // .popup_title
+  &_title {
+    font-weight: 600;
+    margin: 0;
+    font-size: 1.4em;
+    @include adaptiveValue("font-size", 24, 18);
+    margin-bottom: 0.6em;
+
+  }
+  // .popup_sub-title
+  &_sub-title {
+    margin: 0;
+    @include adaptiveValue("font-size", 20, 16);
+    margin-bottom: 0.6em;
+  }
+  // .popup_text
+  &_text {
+    margin: 0;
+    font-size: toRem(16);
+    padding-top: 0.8em;
+    margin-bottom: 0.6em;
+
+    text-align: center;
+    text-wrap: pretty;
+
+    a {
+      display: block;
+      text-align: center;
+      padding-top: toRem(16);
+      font-weight: 700;
+      &:hover {
+        cursor: pointer;
+        text-decoration: underline;
+        color: tomato;
+      }
+    }
+  }
+  // .popup_error
+  &_error {
+    h4 {
+      background-color: tomato;
+    }
+  }
+}
+
