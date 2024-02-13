@@ -41,19 +41,20 @@ li {
 	font-size: 0.8rem;
 	font-weight: normal;
 	padding-top: toRem(6);
+
+	a {
+		&:hover {
+			text-decoration: underline;
+			font-weight: bolder;
+		}
+	}
+
 }
 li:before {
 	content: counters(item, ".") " ";
 	counter-increment: item;
 	font-size: 1rem;
 	font-weight: bolder;
-}
-
-a {
-	&:hover {
-		text-decoration: underline;
-		font-weight: bolder;
-	}
 }
 
 .parent-list > li {
@@ -94,3 +95,19 @@ nav {
 	}
 }
 
+.section-title {
+	a {
+		&:hover {
+			cursor: pointer;
+			text-decoration: underline;
+		}
+	}
+}
+
+.docs-nav {
+	// .docs-nav__list
+	&__list {
+		display: flex;
+		gap: 4px;
+	}
+}

@@ -18,7 +18,7 @@ const gitHubPagesRepository = "/website-traffic-school/"
 // f publish on github-pages we should indicate Repository name <REPO>
 
 //  ? Build for local server test ?
-const outputToLocalServer = false
+const outputToLocalServer = true
 //  ? Remove consoles ?
 const rmConsoleLogs = false
 
@@ -54,10 +54,10 @@ export default defineConfig(({ command, mode, isSsrBuild, isPreview }) => {
             devSourcemap: isDevelopment,
         },
         build: {
+            emptyOutDir: true,
             minify: isProduction,
             cssMinify: isProduction,
             sourcemap: isDevelopment,
-            emptyOutDir: true,
             outDir: pathAliases.projectDir,
             rollupOptions: {
                 
