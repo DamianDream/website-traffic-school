@@ -125,12 +125,8 @@ document.addEventListener("DOMContentLoaded", () => {
 		// create Telegram URL with message
 		const createUrlMessage = (obj) => {
 
-			// const TELEGRAM_BOT_TOKEN = "6847166226:AAFKW003204cNl6FU5HKzLNMeZDHvsm9ViE";
-			// const TELEGRAM_CHAT_ID = "-4101941938";
-
-			// TEST
-			const TELEGRAM_BOT_TOKEN = "6757503975:AAGffN9ewLabqx58b0Cf6SyJhnnusvK-ciY";
-			const TELEGRAM_CHAT_ID = "-4105866056";
+			const TELEGRAM_BOT_TOKEN = "6847166226:AAFKW003204cNl6FU5HKzLNMeZDHvsm9ViE";
+			const TELEGRAM_CHAT_ID = "-4101941938";
 
 			let msg = "📣 TRAFFSCHOOL.COM 📣 New Message %0A";
 
