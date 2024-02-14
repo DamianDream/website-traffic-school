@@ -17,9 +17,9 @@
 
   <title data-lang="page-title">Traffic School - Найкраща школа з арбітражу</title>
 
-  <script type="module" crossorigin src="./assets/index-O9nRhWr3.js"></script>
+  <script type="module" crossorigin src="./assets/index-oE0Q17tW.js"></script>
   <link rel="modulepreload" crossorigin href="./assets/appStart-YRy6sy2B.js">
-  <link rel="stylesheet" crossorigin href="./assets/index-BZe98Qil.css">
+  <link rel="stylesheet" crossorigin href="./assets/index-ZIDCgss_.css">
 </head>
 
 
@@ -442,36 +442,39 @@
        
                            <!-- name -->
                            <div class="form__item">
-                               <input tabindex="2" type="text" data-input="name" id="formName" name="name" class="form__input _req" required
-                               minlength="3" maxlength="30" autocomplete="on"
-                               placeholder="Вкажіть ім'я*">
-                               <span class="form__item-error-text" data-lang='form-name-error'>Ім'я має містити тільки літери</span>
-                           </div>
-       
-                           <!-- telegram -->
-                           <div class="form__item">
-                               <input tabindex="3" type="text" data-input="telegram" id="formTelegram" title="Не менше ніж 4 літери" name="telegram" class="form__input _req"
-                                   required minlength="4" maxlength="36"
-                                   placeholder="Вкажіть свій телеграм*">
-                                   <span class="form__item-error-text" data-lang='form-telegram-error'>Приклад: @my_telegram</span>
+                               <input tabindex="2" type="text" data-input="name" id="formName" name="name"
+                                   class="form__input _req" required minlength="3" maxlength="30" autocomplete="on"
+                                   placeholder="Вкажіть ім'я*">
+                               <span class="form__item-error-text" data-lang='form-name-error'>Ім'я має містити тільки
+                                   літери</span>
                            </div>
        
                            <!-- phone -->
                            <div class="form__item">
-                               <input tabindex="4" type="tel" data-input="phone" id="formPhone" name="phone" class="form__input"
-                               pattern="^\d{5}-\d{3}-\d{4}$" 
-                               placeholder="Вкажіть телефон">
-                               <span class="form__item-error-text _error" data-lang='form-phone-error'></span>
+                               <input tabindex="3" type="tel" data-input="phone" id="formPhone" name="phone"
+                                   class="form__input _req" inlength="5" maxlength="24" placeholder="Вкажіть телефон*" required>
+                               <span class="form__item-error-text" data-lang='form-phone-error'>Телефон має містити тільки
+                                   цифри</span>
                            </div>
-                           <div class="form__item--tip" data-lang='form-phone-tip'>Приклад: 38011-333-4444</div>
+       
+                           <!-- telegram -->
+                           <div class="form__item">
+                               <input tabindex="4" type="text" data-input="telegram" id="formTelegram" name="telegram"
+                                   class="form__input _req"
+                                   placeholder="Вкажіть телеграм">
+                               <span class="form__item-error-text" data-lang='form-telegram-error'>Приклад: @my_telegram (min.4 max.36)</span>
+                           </div>
        
                            <!-- select -->
                            <div class="form__item">
                                <div class="formSelect">
                                    <select tabindex="5" name="select" id="formSelect" class="" data-input="select">
-                                       <option value="" class="select__option" data-lang='select-option-1' disabled selected>Звідки дізнались про нас?</option>
-                                       <option value="media-smm" class="select__option" data-lang='select-option-2'>Реклама</option>
-                                       <option value="friends" class="select__option" data-lang='select-option-3'>Від друзів</option>
+                                       <option value="" class="select__option" data-lang='select-option-1' disabled selected>
+                                           Звідки дізнались про нас?</option>
+                                       <option value="media-smm" class="select__option" data-lang='select-option-2'>Реклама
+                                       </option>
+                                       <option value="friends" class="select__option" data-lang='select-option-3'>Від друзів
+                                       </option>
                                        <option value="other" class="select__option" data-lang='select-option-4'>Інше</option>
                                    </select>
                                </div>
@@ -480,8 +483,8 @@
                            <!-- checkbox -->
                            <div class="form__item">
                                <div class="checkbox">
-                                   <input tabindex="6" type="checkbox" data-input="checkbox" id="formAgreement" name="agreement"
-                                       class="checkbox__input _req" required>
+                                   <input tabindex="6" type="checkbox" data-input="checkbox" id="formAgreement"
+                                       name="agreement" class="checkbox__input _req" required>
                                    <label for="formAgreement" class="checkbox__label">
                                        <span data-lang='form-checkbox__input'>Я даю згоду на обробку персональних даних</span>
                                    </label>
@@ -495,7 +498,7 @@
                                    <span data-lang='form__info-link'>Політика конфіденційності</span>
                                    <span class="_icon-link-icon"></span>
                                </a>
-                             </div>
+                           </div>
        
                        </form>
                    </div>
