@@ -4,14 +4,22 @@ export const emailTest = (email) => {
 	return regex.test(email);
 };
 
+// Phone ========================================================================================================================================================
+
+export const phoneTest = (phone) => {
+	// console.log("emailTest", email); // => log
+	const regex = /^[0-9\-\+]{5,24}$/;
+	return !regex.test(phone);
+};
+
 // Telegram========================================================================================================================================================
 
 export const telegramTest = (value) => {
 	let error = false;
 
-	if (value == "") {
-		console.error("Telegram ID must be filled out");
-		error = true;
+	if (value.trim() === "") {
+		// console.error("Telegram ID must be filled out");
+		return
 	} else if (value.length > 36) {
 		console.error("Telegram ID cannot be more than 36 characters");
 		error = true;

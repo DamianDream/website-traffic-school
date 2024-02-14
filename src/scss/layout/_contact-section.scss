@@ -293,13 +293,6 @@
 	}
 }
 
-.form__item--tip {
-	font-size: toRem(12);
-	font-weight: 400;
-	color: #b5b5b5;
-	text-align: end;
-}
-
 .checkbox {
 	margin-top: toRem(10);
 	margin-bottom: toRem(10);
@@ -323,7 +316,6 @@
 	position: relative;
 	border-radius: 0px;
 	overflow: hidden;
-	margin-top: -16px;
 
 	border: 0;
 	z-index: 1;

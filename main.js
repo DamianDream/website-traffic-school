@@ -28,13 +28,13 @@ import { uNavigationScrollInToView } from "@js/utils/uScrollInToView";
 // FORM
 // import { formHandle } from "@js/form/formHandle";
 import { forceFormControl } from "@js/utils/toggleForm";
-import { addError, removeError, nameTest, telegramTest } from "@js/form/validatFormData.js";
+import { addError, removeError, nameTest, telegramTest, phoneTest } from "@js/form/validatFormData.js";
 import { getAllFormDataObject } from "@js/form/getFormData.js";
 // import { fetchTelegram } from "@js/notification/telegram/apiTelegram.js";
 
 document.addEventListener("DOMContentLoaded", () => {
 	// --- Page loader animation
-	pageLoaderPercent('.counter');
+	pageLoaderPercent(".counter");
 
 	// --- Auto start scripts
 	appStart();
@@ -66,7 +66,7 @@ document.addEventListener("DOMContentLoaded", () => {
 			return;
 		}
 		// get Submit input or button
-		const submitButton =  formNode.querySelector("[type='submit']");
+		const submitButton = formNode.querySelector("[type='submit']");
 
 		// Clear error on input change
 		const formClearError = () => {
@@ -111,6 +111,13 @@ document.addEventListener("DOMContentLoaded", () => {
 							error = true;
 						}
 						break;
+					case "phone":
+						console.log("phone: ", phoneTest(inputValue));
+						if (phoneTest(inputValue)) {
+							addError(input, "_error");
+							error = true;
+						}
+						break;
 					default:
 						if (input.value.length < 0) {
 							addError(input, "_error");
@@ -124,9 +131,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
 		// create Telegram URL with message
 		const createUrlMessage = (obj) => {
+			// const TELEGRAM_BOT_TOKEN = "6847166226:AAFKW003204cNl6FU5HKzLNMeZDHvsm9ViE";
+			// const TELEGRAM_CHAT_ID = "-4101941938";
 
-			const TELEGRAM_BOT_TOKEN = "6847166226:AAFKW003204cNl6FU5HKzLNMeZDHvsm9ViE";
-			const TELEGRAM_CHAT_ID = "-4101941938";
+			// TEST
+			const TELEGRAM_BOT_TOKEN = "6757503975:AAGffN9ewLabqx58b0Cf6SyJhnnusvK-ciY";
+			const TELEGRAM_CHAT_ID = "-4105866056";
 
 			let msg = "📣 TRAFFSCHOOL.COM 📣 New Message %0A";
 
@@ -155,8 +165,8 @@ document.addEventListener("DOMContentLoaded", () => {
 			error = validateForm(formNode); // Check form inputs and return true / false
 			if (error) {
 				submitButton.disabled = false;
-				return
-			};
+				return;
+			}
 
 			// Dialog
 			let dialogEl = document.getElementById("my-dialog");
@@ -191,10 +201,9 @@ document.addEventListener("DOMContentLoaded", () => {
 						if (dialogEl) dialog.show(); // If dialog is not undefined, show it
 					}, 3000);
 				}
-
 			} catch (error) {
 				console.error("Failed to send form data to Telegram channel: ", error.message);
-			} 
+			}
 			submitButton.disabled = false;
 		};
 
