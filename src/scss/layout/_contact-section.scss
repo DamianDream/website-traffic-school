@@ -320,7 +320,6 @@
 	border: 0;
 	z-index: 1;
 	background-color: transparent;
-	border-bottom: 2px solid #eee;
 
 	&:after {
 		content: "";
@@ -374,6 +373,8 @@
 		color: var(--text-secondary);
 		font: inherit;
 		@include adaptiveValue("font-size", 20, 14);
+		border-bottom: 2px solid #eee;
+
 		&:focus {
 			border-bottom: 2px solid var(--bg-accent);
 		}
