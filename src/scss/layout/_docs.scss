@@ -38,7 +38,8 @@ ol {
 	}
 }
 li {
-	font-size: 0.8rem;
+	// font-size: 0.8rem;
+	@include adaptiveValue("font-size", 17, 16);
 	font-weight: normal;
 	padding-top: toRem(6);
 
@@ -53,12 +54,12 @@ li {
 li:before {
 	content: counters(item, ".") " ";
 	counter-increment: item;
-	font-size: 1rem;
+	@include adaptiveValue("font-size", 20, 16);
 	font-weight: bolder;
 }
 
 .parent-list > li {
-	font-size: 1rem;
+	@include adaptiveValue("font-size", 20, 16);
 	font-weight: bold;
 	padding-top: toRem(26);
 }
@@ -84,7 +85,7 @@ nav {
 	color: var(--text-primary);
 	border-radius: 50%;
 	text-align: center;
-	line-height: 40px;
+	line-height: 1.6em;
 	font-size: 1.62rem;
 	box-shadow: 0 2px 5px rgba(0 0 0 / .3);
 	
@@ -110,4 +111,35 @@ nav {
 		display: flex;
 		gap: 4px;
 	}
+}
+
+
+.privat-policy-article-header {
+    @include adaptiveValue("font-size", 24, 16);
+	font-weight: bold;
+	padding-top: toRem(26);
+	transition: 0.3s ease;
+	&:hover {
+		color: var(--text-accent)
+	}
+}
+.privat-policy-article-text, .privat-policy-intro {
+    @include adaptiveValue("font-size", 17, 16);
+	line-height: 1.6;
+	font-weight: normal;
+	padding-top: toRem(6);
+	text-wrap: pretty;
+}
+
+.privat-policy-article-link {
+	font-weight: bold;
+	&:hover {
+		cursor: pointer;
+		text-decoration: underline;
+	}
+}
+
+.privat-policy-article {
+	width: fit-content;
+	margin: 0 auto;
 }

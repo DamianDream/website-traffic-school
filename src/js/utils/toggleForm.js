@@ -24,11 +24,13 @@ export const toggleForm = () => {
 						view.setAttribute("data-visible", true);
 						formOpenBtn.setAttribute("aria-expanded", true);
 						formCloseBtn.setAttribute("aria-expanded", true);
+						document.getElementById("form").focus();
 						break;
 					case "true":
 						view.setAttribute("data-visible", false);
                         formOpenBtn.setAttribute("aria-expanded", false);
 						formCloseBtn.setAttribute("aria-expanded", false);
+						document.getElementsByTagName("body").focus();
 						break;
 					default:
 						console.error("Error, no such case to switch");

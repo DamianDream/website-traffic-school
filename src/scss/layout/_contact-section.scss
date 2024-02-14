@@ -189,15 +189,21 @@
 		}
 	}
 	&__info {
-		padding: 1rem 1rem;
-		text-align: center;
-		font-size: toRem(12);
-		text-decoration: underline;
-
+		padding-top: 1.2em;
+		width: fit-content;
+		margin: 0 auto;
+		
 		a {
-			display: block;
 			color: var(--text-label);
 			text-decoration: none;
+
+			&:focus {
+				text-decoration: underline;
+			}
+
+			&:hover {
+				text-decoration: underline;
+			}
 		}
 	}
 	// .form__button
@@ -299,11 +305,14 @@
 	margin-bottom: toRem(10);
 	// .checkbox__input
 	&__input {
+		&:focus {
+			box-shadow: 0 0 5px rgba(0 0 0 / .4);
+		}
 	}
 	// .checkbox__label
 	&__label {
 		color: var(--text-label);
-		font-size: toRem(12);
+		font-size: toRem(14);
 	}
 }
 
@@ -373,6 +382,9 @@
 		color: var(--text-secondary);
 		font: inherit;
 		@include adaptiveValue("font-size", 20, 14);
+		&:focus {
+			border-bottom: 2px solid var(--bg-accent);
+		}
 
 		// Disable default styling on ff
 		-moz-appearance: none;
