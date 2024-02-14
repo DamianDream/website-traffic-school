@@ -1,0 +1,1 @@
+const l=a=>{if(!a){console.error("Not found options for pageLanguageHandle");return}const{translation:n,defaultLang:t}=a;let r=localStorage.getItem("language")||t;if(r===t)return;function g(){for(const e in n){let o=document.querySelector(`[data-lang=${e}]`);o&&(o.innerHTML=n[e][r])}}try{g()}catch(e){console.error("Failed to translate page",e);return}};export{l as p};
