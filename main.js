@@ -26,13 +26,12 @@ import { addClassInViewObserver } from "@js/animation/addClassInViewObserver.js"
 import { uNavigationScrollInToView } from "@js/utils/uScrollInToView";
 
 // FORM
-// import { formHandle } from "@js/form/formHandle";
 import { forceFormControl } from "@js/utils/toggleForm";
 import { addError, removeError, nameTest, telegramTest, phoneTest } from "@js/form/validatFormData.js";
 import { getAllFormDataObject } from "@js/form/getFormData.js";
-// import { fetchTelegram } from "@js/notification/telegram/apiTelegram.js";
 
 document.addEventListener("DOMContentLoaded", () => {
+
 	// --- Page loader animation
 	pageLoaderPercent(".counter");
 
