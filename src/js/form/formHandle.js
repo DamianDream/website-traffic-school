@@ -86,7 +86,6 @@ export const formHandle = (formId) => {
         } finally {
             setTimeout(() => {
                 form.classList.remove('_sending');
-
             }, 1000)
         }
     }

@@ -101,6 +101,7 @@ export const fileSizeCheck = (file, maxSize = 2) => {
 //         fileSizeCheck
 //     ]
 // }
+
 export const uploadImageFileCheck = (testConfigObject) => {
 	let check = false;
 

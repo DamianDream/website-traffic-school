@@ -175,10 +175,6 @@
 		padding: 0.8rem 10px;
 		border-radius: 4px;
 
-		// &::placeholder {
-		// 	color: var(--text-secondary);
-		// }
-
 		&._error {
 			border-bottom: 2px solid red;
 			box-shadow: 0 0 5px rgb(255, 0, 0, 0.3);

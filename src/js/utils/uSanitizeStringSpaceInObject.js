@@ -1,10 +1,7 @@
- //  sanitize form data via providing underscore to string data 
- const replaceSpaces = str => str.replaceAll(' ', '_')
-
+ //  Sanitize form data via replace spaces for underscore
 //  Return new object with sanitized strings
-// can accept function as second argument
-export  const sanitizeStringSpaceInObject = (obj, foo = replaceSpaces) => {
+export  const sanitizeStringSpaceInObject = (obj) => {
      return Object.fromEntries(
-       Object.entries(obj).map(([key, value]) => [key, foo(value)])
+       Object.entries(obj).map(([key, value]) => [key, value.replaceAll(' ', '_')])
      )
  }

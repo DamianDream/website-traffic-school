@@ -1,7 +1,3 @@
-export const logPageLocation = (url) => {
-    console.log(url);
-}
-
 export const changePageLocation = (url) => {
     try {
         window.location.href = url;
